@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addlib Dance Studio</title>
+<link rel="stylesheet" href="css/adminsched.css">
+
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Administration</h2>
+  <a href="#" data-target="dance-class">DANCE CLASS</a>
+  <a href="#" data-target="private-class">PRIVATE CLASS</a>
+  <a href="#" data-target="rental">RENTAL</a>
+  <a href="index.html">LOG OUT</a>
+</div>
+
+<div class="main-content">
+  <h1>MANAGE AVAILABLE SCHEDULE</h1>
+
+  <!-- Dance Class Form -->
+  <div class="form-box" id="dance-class">
+    <h3>DANCE CLASS</h3>
+    <label>Date</label><input type="date" id="dance-date" required>
+    <label>Class Style</label>
+    <select id="dance-style">
+      <option value="">--Select Style--</option>
+      <option value="R&B / Old School Hip-Hop">R&B / Old School Hip-Hop</option>
+      <option value="Pop / Top 40">Pop / Top 40</option>
+      <option value="Jazz Funk">Jazz Funk</option>
+      <option value="Contemporary">Contemporary</option>
+      <option value="Adult Basic">Adult Basic</option>
+      <option value="K POP">K POP</option>
+      <option value="Adult Beginner">Adult Beginner</option>
+      <option value="Vogue Fem">Vogue Fem</option>
+      <option value="Femme Beginner">Femme Beginner</option>
+      <option value="Latin Funk">Latin Funk</option>
+    </select>
+    <label>Level</label><input type="text" id="dance-level">
+    <label>Duration</label><input type="text" id="dance-duration">
+    <label>Price</label><input type="number" id="dance-price">
+    <button id="add-dance">ADD SLOT</button>
+
+    <h4>Dance Class Slots</h4>
+    <table id="dance-table">
+      <thead>
+        <tr><th>Date</th><th>Class Style</th><th>Level</th><th>Price</th><th>Duration</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Private Class Form -->
+  <div class="form-box" id="private-class">
+    <h3>PRIVATE CLASS</h3>
+    <label>Date</label><input type="date" id="private-date">
+    <label>Class Style</label>
+    <select id="private-style">
+      <option value="">--Select Style--</option>
+      <option value="R&B / Old School Hip-Hop">R&B / Old School Hip-Hop</option>
+      <option value="Pop / Top 40">Pop / Top 40</option>
+      <option value="Jazz Funk">Jazz Funk</option>
+      <option value="Contemporary">Contemporary</option>
+      <option value="Adult Basic">Adult Basic</option>
+      <option value="K POP">K POP</option>
+      <option value="Adult Beginner">Adult Beginner</option>
+      <option value="Vogue Fem">Vogue Fem</option>
+      <option value="Femme Beginner">Femme Beginner</option>
+      <option value="Latin Funk">Latin Funk</option>
+    </select>
+    <label>Level</label><input type="text" id="private-level">
+    <label>Duration</label><input type="text" id="private-duration">
+    <label>Price</label><input type="number" id="private-price">
+    <button id="add-private">ADD SLOT</button>
+
+    <h4>Private Class Slots</h4>
+    <table id="private-table">
+      <thead>
+        <tr><th>Date</th><th>Class Style</th><th>Level</th><th>Price</th><th>Duration</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Rental Form -->
+  <div class="form-box" id="rental">
+    <h3>RENTAL</h3>
+    <label>Date</label><input type="date" id="rental-date">
+    <label>Duration</label><input type="text" id="rental-duration">
+    <label>Price</label><input type="number" id="rental-price">
+    <button id="add-rental">ADD SLOT</button>
+
+    <h4>Rental Slots</h4>
+    <table id="rental-table">
+      <thead>
+        <tr><th>Date</th><th>Duration</th><th>Price</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- Dark mode toggle -->
+<button id="toggleDarkMode" style="position:fixed; bottom:10px; right:10px;">🌙 Dark Mode</button>
+
+<!-- Link external JS -->
+<script type="module" src="js/adminsched.js"></script>
+
+</body>
+</html>

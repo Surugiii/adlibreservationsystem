@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TADS</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+  </header>
+
+  <section class="login-container">
+    <div class="login-box">
+      <button class="close-btn" onclick="goBack()">×</button>
+
+      <input type="radio" name="form-toggle" id="show-login" checked>
+      <input type="radio" name="form-toggle" id="show-register">
+
+      <form class="form login-form">
+        <h2>LOGIN</h2>
+        <p>ENTER YOUR EMAIL AND PASSWORD</p>
+        <input type="text" placeholder="EMAIL" required>
+        <input type="password" placeholder="PASSWORD" required>
+        <button type="submit">LOGIN</button>
+
+        <label for="show-register" class="switch-link">Create new account</label>
+      </form>
+
+      <form class="form register-form">
+        <h2>CREATE ACCOUNT</h2>
+        <p>REGISTER WITH EMAIL AND PASSWORD</p>
+        <input type="email" placeholder="EMAIL" required>
+        <input type="password" placeholder="PASSWORD" required>
+        <input type="password" placeholder="CONFIRM PASSWORD" required>
+        <button type="submit">REGISTER</button>
+
+        <label for="show-login" class="switch-link">Back to Login</label>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <p>2F New Frontier Theater Arcade, 7 Gen. Malvar Ave. Araneta City, Brgy. Socorro,  
+      Quezon City, Philippines 1109 | letsdance@tadsph.com</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© JUBILASIA, INC. All Rights Reserved. 2021</p>
+    </div>
+  </footer>
+
+  <script>
+    function goBack() {
+      window.history.back(); 
+
+    }
+  </script>
+</body>
+</html>

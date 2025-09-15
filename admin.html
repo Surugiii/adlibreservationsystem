@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TADS Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <div class="logo-text">ADLIB DANCE STUDIO</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <button class="menu-btn" data-section="dashboard">Admin Dashboard</button>
+      <button class="menu-btn" data-section="users">User Management</button>
+      <button class="menu-btn" data-section="payments">Payment and Billing</button>
+      <button class="menu-btn" data-section="reports">Reporting and Analytics</button>
+      <button class="menu-btn logout">Log Out</button>
+    </aside>
+    
+    <main class="main-content">
+      <section id="dashboard" class="active">
+        <h2>Pending Requests</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Participants</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pendingTable"></tbody>
+        </table>
+
+        <h2>Confirmed Requests</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Participants</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="confirmedTable"></tbody>
+        </table>
+
+        <h2>Declined Requests</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Participants</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="declinedTable"></tbody>
+        </table>
+      </section>
+
+      <section id="users" class="hidden">
+        <h2>User Management</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable"></tbody>
+        </table>
+      </section>
+
+      <section id="payments" class="hidden">
+        <h2>Payment and Billing</h2>
+        <div class="circle-container">
+          <div class="circle-box">
+            <div class="circle" id="totalPaid">$0</div>
+            <p>PAID</p>
+          </div>
+          <div class="circle-box">
+            <div class="circle" id="pendingPayments">$0</div>
+            <p>PENDING</p>
+          </div>
+          <div class="circle-box">
+            <div class="circle" id="totalClients">0</div>
+            <p>CLIENTS</p>
+          </div>
+          <div class="circle-box">
+            <div class="circle" id="peoplePaid">0</div>
+            <p>PEOPLE PAID</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reports" class="hidden">
+        <h2>Reporting and Analytics</h2>
+        <canvas id="clientsChart"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
