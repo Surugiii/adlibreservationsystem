@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+    <nav>
+      <a href="home.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="book.html">BOOK A CLASS</a>
+      <a href="rent.html">RENT</a>
+      <a href="contact.html" class="active">CONTACT US</a> 
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <button id="toggleDarkMode" class="toggle-btn">🌙 Dark Mode</button>
+  <a href="admin-login.html">ADMIN LOGIN</a>
+  </div>
+
+  <section class="banner">
+    <h1>CONTACT US</h1>
+  </section>
+
+  <section class="contact">
+    <p>📍 Studio Address: 2nd Floor, New Frontier Theater Arcade, Araneta City, Cubao, Quezon City</p>
+    <p>📞 Hotline: 0999-888-A</p>
+    <p>📧 Email: letsdance@tadsph.comDLIB (2354)</p>
+
+   <p>For class concerns, enrollment, or inquiries, please visit our booking page and fill out the form:</p>
+<a href="https://www.tadsph.com/contactus"><button>Send your Concern</button></a>
+
+<p>
+    TADS is based in Quezon City, but our community reaches across Metro Manila.<br>
+    Looking for Adlib teams or events in your area? Check our branch & affiliate list here:
+</p>
+<a href="https://www.tadsph.com/contactus" target="_blank"><button>Addlib Studio</button></a>
+
+    <h3>You can also check out their Facebook page for more information</h3>
+    <div class="social">
+      <a href="https://www.facebook.com/TADSph/"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <p>New Frontier Theater Arcade, Gen. Malvar Ave. Araneta City, Brgy. Socorro, Quezon City, Philippines 1109</p>
+      <p>Email: letsdance@tadsph.com</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">HOME</a>
+      <a href="#">ABOUT</a>
+      <a href="#">BOOK A CLASS</a>
+      <a href="#">RENT</a>
+      <a href="#">CONTACT US</a>
+    </div>
+    <div class="social-icons">
+      <a href="#">📸</a>
+      <a href="#">🎵</a>
+      <a href="#">▶</a>
+      <a href="#">👍</a>
+    </div>
+    <p>© JUBILASIA, INC. All Rights Reserved. 2021</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    hamburger.addEventListener('click', () => {
+      sideMenu.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        sideMenu.classList.remove('open');
+      }
+    });
+
+  const toggleDarkMode = document.getElementById('toggleDarkMode');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleDarkMode.textContent = '☀️ Light Mode';
+  }
+
+  toggleDarkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+      toggleDarkMode.textContent = '☀️ Light Mode';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleDarkMode.textContent = '🌙 Dark Mode';
+    }
+  });
+
+  </script>
+</body>
+</html>

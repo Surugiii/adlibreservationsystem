@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Addlib Dance Studio</title>
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+  <nav>
+    <a href="home.html" class="active">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="book.html">BOOK A CLASS</a>
+    <a href="rent.html">RENT</a>
+    <a href="contact.html">CONTACT US</a>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+</header>
+
+<div class="side-menu" id="sideMenu">
+  <div class="close-btn" id="closeBtn">&times;</div>
+      <hr>
+  <button id="toggleDarkMode" class="toggle-btn">🌙 Dark Mode</button>
+  <a href="admin-login.html">ADMIN LOGIN</a>
+</div>
+
+<section class="reservation">
+  <h2>RESERVATION OFFERING</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="image/Dance Class.png" alt="Dance Class">
+      <h3>DANCE CLASS</h3>
+      <p>Ready to move? We offer in-person classes to range all levels. Join our friendly, welcoming environment!</p>
+      <a href="book2.html"><button>BOOK NOW</button></a>
+    </div>
+    <div class="card">
+      <img src="image/Private.png" alt="Private Class">
+      <h3>PRIVATE CLASS</h3>
+      <p>Want an exclusive dance class? Choose your coach, time, and genre. Tailored to you!</p>
+      <a href="book2.html"><button>BOOK NOW</button></a>
+    </div>
+    <div class="card">
+      <img src="image/addlib.jpg" alt="Rent">
+      <h3>RENT</h3>
+      <p>Organizing a private class or fitness shoot? Rent our space to fit your creative needs!</p>
+      <a href="book2.html"><button>BOOK NOW</button></a>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <h2>Addlib Studio: Performance & Innovation</h2>
+  <div class="info-content">
+    <div class="info-image-container">
+      <img src="image/dance4.jpg" alt="Dance Performance"> </div>
+    <div class="info-text-container">
+      <div class="info-item">
+        <h3>Performance</h3>
+        <p>We deliver top-notch service in production, operations, and content creation. We ensure quality, speed, and consistency.</p>
+      </div>
+      <div class="info-item">
+        <h3>Innovation</h3>
+        <p>We use modern booking systems and resource management tools for efficient and forward-thinking services.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="experience">
+  <h2>The Addlib Studio Experience: <span>Why You’ll Want to Book a Class</span></h2>
+  <div class="points">
+    <div class="point">
+      <img src="image/j3.jpg" alt="Movement">
+      <h4>01. Feel Empowered Through Movement</h4>
+      <p>Every class is built to help you grow physically and mentally. From Jazz Funk to Pop, we help unlock your style and confidence.</p>
+    </div>
+    <div class="point">
+      <img src="image/j4.jpg" alt="Professionals">
+      <h4>02. Be Mentored by Industry Professionals</h4>
+      <p>Our classes are led by experienced mentors, helping you discover your movement and grow your potential.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>2F New Frontier Theater Arcade, 7 Gen. Malvar Ave., Araneta City, Brgy. Socorro, Quezon City, Philippines 1109</p>
+  <a href="mailto:letsdance@tadsph.com">letsdance@tadsph.com</a>
+  <div class="footer-nav">
+    <a href="#">HOME</a>
+    <a href="#">ABOUT</a>
+    <a href="#">BOOK A CLASS</a>
+    <a href="#">RENT</a>
+    <a href="#">CONTACT US</a>
+  </div>
+  <p>© JUBILASIA, INC. All Rights Reserved. 2021</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('closeBtn');
+
+  hamburger.addEventListener('click', () => {
+    sideMenu.classList.add('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      sideMenu.classList.remove('open');
+    }
+  });
+
+  const toggleDarkMode = document.getElementById('toggleDarkMode');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleDarkMode.textContent = '☀️ Light Mode';
+  }
+
+  toggleDarkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+      toggleDarkMode.textContent = '☀️ Light Mode';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleDarkMode.textContent = '🌙 Dark Mode';
+    }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <nav class="sidebar">
+    <button class="active" data-section="dashboard">Dashboard</button>
+    <button data-section="users">Users</button>
+    <button data-section="payments">Payments</button>
+    <button data-section="reports">Reports</button>
+    <button id="logoutBtn">Log Out</button>
+  </nav>
+
+  <main>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="">
+      <h1>Dashboard</h1>
+
+      <!-- Pending Requests -->
+      <h2>Pending Requests</h2>
+      <input type="text" id="pendingSearchInput" placeholder="Search by Email, Name, or Type..." />
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Participants</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Payment</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="pendingTable">
+          <tr><td colspan="10">Loading...</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Confirmed Requests -->
+      <h2>Confirmed Requests</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Participants</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Payment</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="confirmedTable">
+          <tr><td colspan="10">Loading...</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Declined Requests -->
+      <h2>Declined Requests</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Participants</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Payment</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="declinedTable">
+          <tr><td colspan="10">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Users Section -->
+    <section id="users" class="hidden">
+      <h1>Users</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable">
+          <tr><td colspan="4">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Payments Section -->
+    <section id="payments" class="hidden">
+      <h1>Payments Summary</h1>
+      <div class="summary-cards">
+        <div class="card">
+          <h3>Total Paid</h3>
+          <p id="totalPaid">₱0.00</p>
+        </div>
+        <div class="card">
+          <h3>Pending Payments</h3>
+          <p id="pendingPayments">₱0.00</p>
+        </div>
+        <div class="card">
+          <h3>Total Clients</h3>
+          <p id="totalClients">0</p>
+        </div>
+        <div class="card">
+          <h3>People Paid</h3>
+          <p id="peoplePaid">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="hidden">
+      <h1>Reports</h1>
+      <canvas id="clientsChart" width="400" height="400"></canvas>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
