@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RENT</title>
+  <link rel="stylesheet" href="css/rent2.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+    <nav>
+      <a href="home.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="book.html">BOOK A CLASS</a>
+      <a class="active" href="#">RENT</a>
+      <a href="contact.html">CONTACT US</a>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <hr>
+    <button id="toggleDarkMode" class="toggle-btn">🌙 Dark Mode</button>
+    <a href="admin-login.html">ADMIN LOGIN</a>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <section class="schedule-container">
+    <h2>SCHEDULE YOUR SERVICE</h2>
+  </section>
+
+  <section class="booking">
+    <h2>Renting Form</h2>
+    <div class="form-container">
+      <form class="client-details">
+        <h3>Client Details</h3>
+        <label>Full Name</label>
+        <input type="text" id="fullname" required>
+        <label>Email</label>
+        <input type="email" id="email" required>
+        <label>Phone Number</label>
+        <input type="tel" id="phone" maxlength="11" required>
+        <label for="participants">Number of Participants</label>
+        <select id="participants">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+      </select>
+
+      </form>
+
+      <h3>Selected Rent</h3>
+      <div id="selectedClassBox" class="selected-class-box">
+        <p><strong>Duration:</strong> <span id="rental-duration">-</span></p>
+        <p><strong>Price:</strong> <span id="rental-price">-</span></p>
+        <p><strong>Date:</strong> <span id="rental-date">-</span></p>
+      </div>
+
+      <div class="action-buttons">
+        <button type="button" class="paynow">CONFIRM</button>
+        <button type="button" class="cancel-btn">CANCEL</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>The Addlib Dance Studio</p>
+    <p>2F New Frontier Theater Arcade, 7 Gen. Malvar Ave. Araneta City, Quezon City, Philippines</p>
+    <p>Email: letsdance@tadsph.com</p>
+  </footer>
+
+  <script type="module" src="js/rent2.js"></script>
+</body>
+</html>
