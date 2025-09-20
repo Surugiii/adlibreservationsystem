@@ -1,0 +1,514 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #000;
+}
+
+header {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #000;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 20px 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  border-left: 2px solid #fff;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.side-menu a {
+  color: #fff;
+  text-decoration: none;
+  margin: 15px 0;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.side-menu a:hover {
+  color: #000;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.banner {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 120px 20px 60px;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.banner h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.difficulty {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 20px;
+  border: 2px solid #000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.difficulty h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #000;
+}
+
+.difficulty ul {
+  list-style: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.difficulty li {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.classes {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.classes h3 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #000;
+  text-align: center;
+}
+
+.classes table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+.classes th, .classes td {
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.classes th {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.classes tbody tr:hover {
+  background: #f2f2f2;
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
+.book-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.book-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
+}
+
+footer p, footer a {
+  color: #fff;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.footer-nav a {
+  margin: 0 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a.active {
+  color: #000;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .difficulty, .classes {
+    padding: 20px 10px;
+  }
+
+  .classes table, .classes th, .classes td {
+    font-size: 12px;
+  }
+
+  .banner h2 {
+    font-size: 28px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+.toggle-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #ddd;
+}
+
+body.dark-mode {
+  background: #111;
+  color: #f1f1f1;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode header {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode nav a {
+  color: #f1f1f1;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+  color: #000;
+  background: #fff;
+}
+
+body.dark-mode .banner {
+  background: #222;
+  color: #f1f1f1;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .difficulty {
+  background: #222;
+  color: #f1f1f1;
+  border-color: #555;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .difficulty h2 {
+  color: #f1f1f1;
+}
+
+body.dark-mode .difficulty ul,
+body.dark-mode .difficulty li {
+  color: #f1f1f1;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .classes {
+  background: #222;
+  color: #f1f1f1;
+  border-color: #555;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .classes h3 {
+  color: #f1f1f1;
+}
+
+body.dark-mode .classes table {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode .classes th {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .classes td {
+  color: #f1f1f1;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .classes tbody tr:hover {
+  background: #333;
+}
+
+body.dark-mode .book-btn {
+  background: #f1f1f1;
+  color: #111;
+}
+
+body.dark-mode .book-btn:hover {
+  background: #ddd;
+  color: #000;
+}
+
+body.dark-mode footer {
+  background: #222;
+  color: #f1f1f1;
+  border-color: #555;
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
+}
+
+body.dark-mode footer p,
+body.dark-mode footer a {
+  color: #f1f1f1;
+}
+
+body.dark-mode .footer-nav a {
+  color: #f1f1f1;
+}
+
+body.dark-mode .footer-nav a:hover,
+body.dark-mode .footer-nav a.active {
+  color: #000;
+  background: #fff;
+}
+
+body.dark-mode .side-menu {
+  background: #222;
+  color: #f1f1f1;
+  border-left: 2px solid #fff;
+}
+
+body.dark-mode .side-menu a {
+  color: #f1f1f1;
+}
+
+body.dark-mode .side-menu a:hover {
+  color: #000;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 8px 0;
+    font-size: 14px;
+  }
+
+  .banner {
+    padding: 100px 15px 40px;
+    font-size: 22px;
+  }
+
+  .banner h2 {
+    font-size: 28px;
+  }
+
+  .difficulty, .classes {
+    padding: 20px 10px;
+  }
+
+  .classes table, .classes th, .classes td {
+    font-size: 12px;
+  }
+
+  .book-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .side-menu {
+    width: 200px;
+    padding: 50px 15px 15px 15px;
+  }
+
+  .hamburger {
+    font-size: 24px;
+  }
+
+  .banner {
+    padding: 80px 10px 30px;
+    font-size: 20px;
+  }
+
+  .banner h2 {
+    font-size: 24px;
+  }
+
+  .difficulty h2 {
+    font-size: 22px;
+  }
+
+  .difficulty ul, .difficulty li {
+    font-size: 14px;
+  }
+
+  .classes h3 {
+    font-size: 20px;
+  }
+
+  .classes table, .classes th, .classes td {
+    font-size: 12px;
+  }
+
+  footer {
+    padding: 30px 10px;
+    font-size: 12px;
+  }
+}
