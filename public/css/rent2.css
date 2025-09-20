@@ -1,0 +1,435 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background: #fff; 
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+header {
+  background: #000; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #000;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 20px 20px;
+  transition: right 0.3s ease;
+  z-index: 20000; 
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 1400;
+}
+
+.menu-overlay.show {
+  display: block;
+}
+
+.side-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 20px 0;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.side-menu a:hover {
+  color: #000000;
+  background: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.side-menu a.admin-login {
+  background: #111; 
+  color: #fff;     
+}
+
+.side-menu a.admin-login:hover {
+  background: #111; 
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+.schedule-container {
+  padding: 140px 20px 40px;
+  text-align: center;
+  background: #111;
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.schedule-container h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.booking {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  border: 2px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.client-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.client-details input,
+.client-details select {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.client-details input:focus,
+.client-details select:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.selected-class-box {
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  border: 2px solid #eee;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.selected-class-box p {
+  margin: 8px 0;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-weight: 600;
+  color: #333;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.action-buttons .paynow {
+  background: #000;
+  color: #fff;
+}
+
+.action-buttons .paynow:hover {
+  background: #333;
+}
+
+.action-buttons .cancel-btn {
+  background: #f0f0f0;
+  color: #444;
+}
+
+.action-buttons .cancel-btn:hover {
+  background: #ddd;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  border-radius: 20px 20px 0 0;
+  margin-top: 50px;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.modal-box.confirm-box {
+  background: #fff;
+  color: #111;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.confirm-actions .btn-confirm {
+  background: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-actions .btn-confirm:hover {
+  background: #218838;
+}
+
+.confirm-actions .btn-cancel {
+  background: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-actions .btn-cancel:hover {
+  background: #c82333;
+}
+
+.toggle-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #ddd;
+}
+
+body.dark-mode {
+  background: #111;
+  color: #f1f1f1;
+}
+
+body.dark-mode header {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode nav a {
+  color: #f1f1f1;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+  color: #000;
+  background: #fff;
+}
+
+body.dark-mode .side-menu {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode .side-menu a.admin-login {
+  background: #111; 
+  color: #fff;
+}
+
+body.dark-mode .side-menu a.admin-login:hover {
+  background: #111;
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+body.dark-mode .schedule-container {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode .booking {
+  background: #222;
+  border: 1px solid #444;
+  color: #f1f1f1;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .client-details {
+  background: #333;
+  border: 1px solid #555;
+}
+
+body.dark-mode .client-details input,
+body.dark-mode .client-details select {
+  background: #222;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .selected-class-box {
+  background: #333;
+  border: 1px solid #555;
+}
+
+body.dark-mode .selected-class-box p {
+  background: #444;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .action-buttons .paynow {
+  background: #f1f1f1;
+  color: #111;
+}
+
+body.dark-mode .action-buttons .paynow:hover {
+  background: #ddd;
+  color: #000;
+}
+
+body.dark-mode .action-buttons .cancel-btn {
+  background: #555;
+  color: #f1f1f1;
+}
+
+body.dark-mode .action-buttons .cancel-btn:hover {
+  background: #666;
+}
+
+body.dark-mode footer {
+  background: #222;
+  color: #f1f1f1;
+}
