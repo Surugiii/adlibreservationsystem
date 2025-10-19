@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Manage Reservations | ADDLIB Dance Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">
+        <i class="fas fa-dice-d20" aria-hidden="true"></i>
+        ADDLIB Dance Studio - Admin Dashboard
+      </h1>
+      <div class="header-buttons">
+        <button class="dark-mode-toggle" id="toggleDarkMode" aria-label="Toggle dark mode">🌙</button>
+        <button id="logout-btn" class="btn btn-secondary" aria-label="Logout">
+          <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="dashboard" id="dashboard" role="region" aria-label="Dashboard Summary">
+    <div class="dashboard-card">
+      <div class="card-icon">
+        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+      </div>
+      <h3>Total Reservations</h3>
+      <div class="value" id="total-reservations">0</div>
+    </div>
+    <div class="dashboard-card">
+      <div class="card-icon">
+        <i class="fas fa-credit-card" aria-hidden="true"></i>
+      </div>
+      <h3>Pending Payments</h3>
+      <div class="value" id="pending-payments">₱0.00</div>
+    </div>
+    <div class="dashboard-card">
+      <div class="card-icon">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+      </div>
+      <h3>Confirmed Reservations</h3>
+      <div class="value" id="confirmed-reservations">0</div>
+    </div>
+    <div class="dashboard-card">
+      <div class="card-icon">
+        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+      </div>
+      <h3>Total Revenue</h3>
+      <div class="value" id="total-revenue">₱0.00</div>
+    </div>
+    <div class="dashboard-card">
+      <div class="card-icon">
+        <i class="fas fa-clock" aria-hidden="true"></i>
+      </div>
+      <h3>Recent Reservations (Last 7 Days)</h3>
+      <div class="value" id="recent-reservations">0</div>
+    </div>
+  </section>
+
+  <section class="controls" role="search">
+    <input type="text" id="search-input" placeholder="Search by name or email..." aria-label="Search reservations">
+    <select id="status-filter" aria-label="Filter by status">
+      <option value="">All Statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Confirmed">Confirmed</option>
+    </select>
+    <button id="refresh-btn" class="btn btn-primary" aria-label="Refresh data">
+      <i class="fas fa-sync-alt" aria-hidden="true"></i> Refresh
+    </button>
+  </section>
+
+  <section class="table-section" role="region" aria-label="Reservations Table">
+    <div class="table-container">
+      <table id="reservations-table" role="table" aria-describedby="table-desc">
+        <caption id="table-desc" class="sr-only">Manage Reservations Table</caption>
+        <thead>
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Class Type</th>
+            <th scope="col">Class Style</th>
+            <th scope="col">Class Level</th>
+            <th scope="col">Participants</th>
+            <th scope="col">Requested Date</th>
+            <th scope="col">Requested Time</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Payment Amount</th>
+            <th scope="col">Payment Screenshot</th>
+            <th scope="col">Reservation Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div id="loading" class="loading" style="display: none;" aria-live="polite">
+    <div class="spinner"></div>
+    <p>Loading reservations...</p>
+  </div>
+
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-overlay" tabindex="-1">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title" class="sr-only">Payment Screenshot</h2>
+          <button id="modal-close" class="btn btn-secondary" aria-label="Close modal">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="modal-image" src="" alt="Payment screenshot" style="display: none;">
+          <div id="modal-placeholder" class="placeholder">
+            <i class="fas fa-image" aria-hidden="true"></i>
+            <p>No image available</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
+ 

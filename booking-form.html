@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Addlib Dance Studio: Book dance classes, private sessions, and rent space in Quezon City. Experience professional training and innovation." />
+  <title>Reserve Your Dance Class or Rental | Addlib Dance Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="nav-main-links">
+        <a href="home.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="booking-form.html" class="nav-link active">RESERVE</a>
+        <a href="contact.html" class="nav-link">CONTACT US</a>
+      </div>
+      <div class="nav-actions">
+        <a href="admin-login.html" class="nav-link">LOGIN</a>
+        <a href="user-dashboard.html" class="nav-link">ME</a>
+        <span class="nav-divider">|</span>
+        <button id="toggleDarkModeDesktop" class="nav-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">&#9776;</div>
+  </header>
+
+  <div class="side-menu" id="sideMenu" role="dialog" aria-label="Side menu">
+    <div class="close-btn" id="closeBtn" aria-label="Close menu">&times;</div>
+    <hr />
+    <a href="home.html" class="side-link nav-link">HOME</a>
+    <a href="about.html" class="side-link nav-link">ABOUT</a>
+    <a href="booking-form.html" class="side-link nav-link active">RESERVE</a>
+    <a href="contact.html" class="side-link nav-link">CONTACT US</a>
+    <a href="admin-login.html" class="side-link">LOGIN</a>
+    <a href="user-dashboard.html" class="side-link">ME</a>
+    <button id="toggleDarkModeMobile" class="toggle-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+  </div>
+
+  <main id="reservation-page">
+    <section class="reservation" aria-labelledby="reservation-title">
+      <h2 id="reservation-title">Reserve Your Dance Class or Rental</h2>
+      <p style="text-align:center; margin-bottom:1rem;">
+        <a href="user-dashboard.html" class="nav-link" style="font-weight:600;">View My Reservations</a>
+      </p>
+      <p style="text-align:center; font-size:0.9rem; color: var(--primary-dark); max-width:600px; margin: 0 auto 2rem;">
+        <strong>Note:</strong> You must be signed in to submit a reservation. <a href="admin-login.html" class="nav-link">Sign In</a>
+      </p>
+
+      <form id="reservation-form" novalidate>
+        <label for="full_name">Full Name:
+          <input type="text" id="full_name" name="full_name" required autocomplete="name" />
+        </label>
+
+        <label for="email">Email:
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </label>
+
+        <label for="phone">Phone Number:
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+        </label>
+
+        <label id="participants-label" for="participants">Number of Participants:
+          <input type="number" id="participants" name="participants" min="1" value="1" required />
+          <span class="note">Enter expected group size (for classes) or attendees (for rentals). Dance Class is fixed for 1 person.</span>
+        </label>
+
+        <label for="requested_date">Requested Date:
+          <input type="date" id="requested_date" name="requested_date" required />
+        </label>
+
+        <label for="requested_time">Requested Time (Hour):
+          <select id="requested_time" name="requested_time" required>
+            <option value="" disabled selected>-- Select Hour --</option>
+            <option value="08:00">8:00 AM</option>
+            <option value="09:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">1:00 PM</option>
+            <option value="14:00">2:00 PM</option>
+            <option value="15:00">3:00 PM</option>
+            <option value="16:00">4:00 PM</option>
+            <option value="17:00">5:00 PM</option>
+            <option value="18:00">6:00 PM</option>
+            <option value="19:00">7:00 PM</option>
+            <option value="20:00">8:00 PM</option>
+            <option value="21:00">9:00 PM</option>
+            <option value="22:00">10:00 PM</option>
+          </select>
+        </label>
+
+        <label for="class_type">Class or Rental Type:
+          <select id="class_type" name="class_type" required>
+            <option value="" disabled selected>-- Select --</option>
+            <option value="Dance Class">Dance Class</option>
+            <option value="Private Class">Private Class</option>
+            <option value="Rental">Rental</option>
+          </select>
+          <span class="note" id="rental-note" style="display:none;">For Rental, expected group size is not required (doesn't affect price).</span>
+        </label>
+
+        <div id="class-details" style="display:none;">
+          <label for="class_style">Class Style:
+            <select id="class_style" name="class_style">
+              <option value="" disabled selected>-- Select Style --</option>
+              <option value="Jazz Funk">Jazz Funk</option>
+              <option value="Hip Hop">Hip Hop</option>
+              <option value="Contemporary">Contemporary</option>
+            </select>
+          </label>
+
+          <label for="class_level">Class Level:
+            <input type="text" id="class_level" name="class_level" placeholder="e.g., Beginner, Intermediate" />
+          </label>
+        </div>
+
+        <label for="duration">Duration (e.g., 1 hour, 1.5 hours; fixed 1:30 for Private Class):
+          <input type="text" id="duration" name="duration" required />
+        </label>
+
+        <p id="price-display" aria-live="polite" style="margin-top:1.5rem;">
+          Full Estimated Price: ₱<span id="estimated_price">0.00</span> | Deposit (70%): ₱<span id="deposit_amount">0.00</span>
+        </p>
+
+        <button type="submit" aria-label="Submit Reservation Request">Submit Reservation Request</button>
+      </form>
+
+      <div id="payment-section" style="display:none; margin-top:2rem;">
+        <h2>Upload Payment Screenshot (for 70% Deposit)</h2>
+        <input type="file" id="payment_screenshot" accept="image/*" aria-label="Upload payment screenshot" />
+        <button id="upload-payment-btn" disabled>Upload Payment Screenshot</button>
+        <p id="upload-status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2F New Frontier Theater Arcade, 7 Gen. Malvar Ave., Araneta City, Brgy. Socorro, Quezon City, Philippines 1109</p>
+    <a href="mailto:letsdance@tadsph.com">letsdance@tadsph.com</a>
+    <div class="footer-nav">
+      <a href="home.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+      <a href="booking-form.html" class="nav-link active">RESERVE</a>
+      <a href="contact.html" class="nav-link">CONTACT US</a>
+    </div>
+    <p>© JUBILASIA, INC. All Rights Reserved. 2021</p>
+  </footer>
+
+  <script type="module" src="js/booking-form.js"></script>
+  <script>
+    
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    const toggleMenu = () => {
+      sideMenu.classList.toggle('open');
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+
+    document.addEventListener('click', (event) => {
+      if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        sideMenu.classList.remove('open');
+      }
+    });
+
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    document.querySelectorAll('.side-link').forEach(link => {
+      link.addEventListener('click', () => {
+        sideMenu.classList.remove('open');
+      });
+    });
+
+    const desktopToggle = document.getElementById('toggleDarkModeDesktop');
+    const mobileToggle = document.getElementById('toggleDarkModeMobile');
+    const allToggles = [desktopToggle, mobileToggle].filter(t => t);
+
+    const updateToggleState = () => {
+      const isDark = document.body.classList.contains('dark-mode');
+      allToggles.forEach(toggle => {
+        if (isDark) {
+          toggle.textContent = '☀️';
+          toggle.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+          toggle.textContent = '🌙';
+          toggle.setAttribute('aria-label', 'Switch to dark mode');
+        }
+      });
+    };
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    updateToggleState();
+
+    allToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        updateToggleState();
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const classTypeSelect = document.getElementById('class_type');
+      const participantsLabel = document.getElementById('participants-label');
+      const participantsInput = document.getElementById('participants');
+      const rentalNote = document.getElementById('rental-note');
+      const classDetails = document.getElementById('class-details');
+      const estimatedPriceSpan = document.getElementById('estimated_price');
+      const depositAmountSpan = document.getElementById('deposit_amount');
+
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('requested_date').min = today;
+
+      const prices = {
+        "Dance Class": 500,
+        "Private Class": 1500,
+        "Rental": 2000
+      };
+
+      const calculateEstimatedPrice = () => {
+        const type = classTypeSelect.value;
+        let participants = parseInt(participantsInput.value) || 1;
+        if (type === "Dance Class") {
+          participants = 1;
+        }
+        let basePrice = prices[type] || 0;
+        let totalPrice = 0;
+
+        if (type === "Private Class") {
+          totalPrice = basePrice * participants;
+        } else {
+          totalPrice = basePrice;
+        }
+
+        estimatedPriceSpan.textContent = totalPrice.toFixed(2);
+        depositAmountSpan.textContent = (totalPrice * 0.7).toFixed(2);
+      };
+
+      classTypeSelect.addEventListener('change', () => {
+        const type = classTypeSelect.value;
+
+        if (type === 'Rental') {
+          rentalNote.style.display = 'block';
+          participantsLabel.style.display = 'none';
+          participantsInput.required = false;
+          participantsInput.value = '1';
+          classDetails.style.display = 'none';
+        } else {
+          rentalNote.style.display = 'none';
+          participantsLabel.style.display = 'block';
+          participantsInput.required = true;
+          classDetails.style.display = 'block';
+
+          if (type === 'Dance Class') {
+            participantsInput.value = '1';
+            participantsInput.min = 1;
+            participantsInput.max = 1;
+            participantsInput.disabled = true;
+          } else if (type === 'Private Class') {
+            participantsInput.value = '1';
+            participantsInput.min = 1;
+            participantsInput.max = 40;
+            participantsInput.disabled = false;
+          } else {
+            participantsInput.value = '1';
+            participantsInput.min = 1;
+            participantsInput.max = '';
+            participantsInput.disabled = false;
+          }
+        }
+        calculateEstimatedPrice();
+      });
+
+      participantsInput.addEventListener('input', calculateEstimatedPrice);
+      classTypeSelect.dispatchEvent(new Event('change'));
+
+      const form = document.getElementById('reservation-form');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Reservation request submitted! (Functionality to be implemented)');
+      });
+    });
+  </script>
+</body>
+</html>

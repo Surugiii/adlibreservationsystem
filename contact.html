@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Addlib Dance Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">ADDLIB DANCE STUDIO TADS</div>
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="nav-main-links">
+        <a href="home.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="booking-form.html" class="nav-link">RESERVE</a>
+        <a href="contact.html" class="nav-link active">CONTACT US</a>
+      </div>
+      <div class="nav-actions">
+        <a href="admin-login.html" class="nav-link">LOGIN</a>
+        <a href="user-dashboard.html" class="nav-link">ME</a>
+        <span class="nav-divider">|</span>
+        <button id="toggleDarkModeDesktop" class="nav-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">&#9776;</div>
+  </header>
+
+  <div class="side-menu" id="sideMenu" role="dialog" aria-label="Side menu">
+    <div class="close-btn" id="closeBtn" aria-label="Close menu">&times;</div>
+    <hr>
+    <a href="home.html" class="side-link nav-link">HOME</a>
+    <a href="about.html" class="side-link nav-link">ABOUT</a>
+    <a href="booking-form.html" class="side-link nav-link">RESERVE</a>
+    <a href="contact.html" class="side-link nav-link active">CONTACT US</a>
+    <a href="admin-login.html" class="side-link">LOGIN</a>
+    <a href="user-dashboard.html" class="side-link">ME</a>
+    <button id="toggleDarkModeMobile" class="toggle-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+  </div>
+
+  <main>
+  <section class="contact-section">
+    <h2>CONTACT ADDLIB DANCE STUDIO</h2>
+    <div class="contact-content">
+      <img src="image/dance4.jpg" alt="Dance studio front desk welcoming visitors">
+      <p>
+        📍 <strong>Studio Address:</strong> 2F New Frontier Theater Arcade, Araneta City, Cubao, Quezon City <br>
+        📞 <strong>Hotline:</strong> 0999-888-ADLIB (2354) <br>
+        📧 <strong>Email:</strong> letsdance@tadsph.com
+      </p>
+    </div>
+
+    <p>
+      For class concerns, enrollment, or inquiries, please visit our booking page and fill out the form.  
+    </p>
+    <a href="booking-form.html"><button>Send Your Concern</button></a>
+
+    <p>
+      TADS is based in Quezon City, but our community reaches across Metro Manila. Looking for Addlib teams or events in your area?  
+      Check our branch & affiliate list here:  
+    </p>
+    <a href="https://www.tadsph.com/contactus" target="_blank"><button>Visit Addlib Studio</button></a>
+
+    <h3>Connect with us on social media</h3>
+    <div class="social">
+      <a href="https://www.facebook.com/TADSph/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+      </a>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <p>2F New Frontier Theater Arcade, 7 Gen. Malvar Ave., Araneta City, Brgy. Socorro, Quezon City, Philippines 1109</p>
+    <a href="mailto:letsdance@tadsph.com">letsdance@tadsph.com</a>
+    <div class="footer-nav">
+      <a href="home.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+      <a href="booking-form.html" class="nav-link">RESERVE</a>
+      <a href="contact.html" class="nav-link active">CONTACT US</a>
+    </div>
+    <p>© JUBILASIA, INC. All Rights Reserved. 2021</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    const toggleMenu = () => {
+      sideMenu.classList.toggle('open');
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+
+    document.addEventListener('click', (event) => {
+      if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        sideMenu.classList.remove('open');
+      }
+    });
+
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    document.querySelectorAll('.side-link').forEach(link => {
+      link.addEventListener('click', () => {
+        sideMenu.classList.remove('open');
+      });
+    });
+
+    const desktopToggle = document.getElementById('toggleDarkModeDesktop');
+    const mobileToggle = document.getElementById('toggleDarkModeMobile');
+    const allToggles = [desktopToggle, mobileToggle].filter(t => t);
+
+    const updateToggleState = () => {
+      const isDark = document.body.classList.contains('dark-mode');
+      allToggles.forEach(toggle => {
+        if (isDark) {
+          toggle.textContent = '☀️';
+          toggle.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+          toggle.textContent = '🌙';
+          toggle.setAttribute('aria-label', 'Switch to dark mode');
+        }
+      });
+    };
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+    updateToggleState();
+
+    allToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        updateToggleState();
+      });
+    });
+  </script>
+</body>
+</html>
